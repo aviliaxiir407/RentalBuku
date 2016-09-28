@@ -43,59 +43,25 @@
             android:layout_below="@+id/imageView"
             android:text="Identitas Penyewa" />
 
-        <LinearLayout
+        <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Nama :" />
-
+            android:layout_height="wrap_content">
             <EditText
                 android:id="@+id/editTextNama"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Alamat :" />
-
+                android:hint="Nama" />
             <EditText
                 android:id="@+id/editTextAlamat"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textView5"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="No. Ktp :" />
-
+                android:hint="Alamat" />
             <EditText
                 android:id="@+id/editTextKtp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-        </LinearLayout>
+                android:layout_height="wrap_content"
+                android:hint="No.KTP" />
+        </android.support.design.widget.TextInputLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -114,21 +80,21 @@
                 android:layout_height="wrap_content">
 
                 <RadioButton
-                    android:id="@+id/radioButton"
+                    android:id="@+id/radioButtonSM"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:checked="false"
                     android:text="Silver Member" />
 
                 <RadioButton
-                    android:id="@+id/radioButton2"
+                    android:id="@+id/radioButtonGM"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:checked="false"
                     android:text="Gold Member" />
 
                 <RadioButton
-                    android:id="@+id/radioButton3"
+                    android:id="@+id/radioButtonPM"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:checked="false"
@@ -161,7 +127,8 @@
             <Spinner
                 android:id="@+id/spinnerJudul"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:entries="@array/judul" />
         </LinearLayout>
 
 
@@ -172,22 +139,25 @@
             android:text="Kondisi Buku ketika Dipinjam" />
 
         <CheckBox
-            android:id="@+id/checkBox"
+            android:id="@+id/checkBoxCC"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New CheckBox" />
+            android:checked="false"
+            android:text="Cover Cacat" />
 
         <CheckBox
-            android:id="@+id/checkBox2"
+            android:id="@+id/checkBoxBS"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New CheckBox" />
+            android:checked="false"
+            android:text="Bersampul" />
 
         <CheckBox
-            android:id="@+id/checkBox3"
+            android:id="@+id/checkBoxPB"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New CheckBox" />
+            android:checked="false"
+            android:text="Pembatas Buku" />
 
         <Button
             android:id="@+id/buttonOk"
@@ -196,7 +166,7 @@
             android:text="OK" />
 
         <TextView
-            android:id="@+id/textView10"
+            android:id="@+id/textViewHasil"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:text="Hasil" />
