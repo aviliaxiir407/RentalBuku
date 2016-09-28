@@ -39,6 +39,13 @@ public class MainActivity extends AppCompatActivity {
 
         tvHasil = (TextView) findViewById(R.id.textViewHasil);
 
+        findViewById(R.id.buttonOk).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                doClick();
+            }
+        });
+
         bOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -46,6 +53,37 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    private void doClick() {
+        String hasilrb = null;
+
+        if (rbSM.isChecked()) {
+            hasilrb = rbSM.getText().toString();
+        } else if (rbGM.isChecked()) {
+            hasilrb = rbGM.getText().toString();
+        } else if (rbPM.isChecked()) {
+            hasilrb = rbPM.getText().toString();
+        }
+
+        if (hasilrb == null) {
+            tvHasil.setText("Belum Menjadi Member");
+        } else {
+            tvHasil.setText("\n Member Anda : " + hasilrb + "\n");
+        }
+
+        tvHasil.setText("Judul Buku : " + spJudul.getSelectedItem().toString() + "\n");
+
+        String hasilcb = "Kondisi Buku Pinjam : \n";
+        int startlen = hasilcb.length();
+        if (cbCC.isChecked()) hasilcb += cbCC.getText() + "\n";
+        if (cbBS.isChecked()) hasilcb += cbBS.getText() + "\n";
+        if (cbPB.isChecked()) hasilcb += cbPB.getText() + "\n";
+
+        if (hasilcb.length() == startlen) hasilcb += "Tidak Meminjam Buku";
+
+        tvHasil.setText(hasilcb);
+    }
+
 
     private void doProcess() {
         if (isValid()) {
