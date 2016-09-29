@@ -78,6 +78,8 @@ public class MainActivity extends AppCompatActivity {
             tvHasil.setText("Nama : " + nama + "\n Alamat : " + alamat + "\n No Ktp : " + ktp);
         }
 
+        String[] arJudul = getResources().getStringArray(R.array.judul);
+        int judul = spJudul.getSelectedItemPosition();
 
         StringBuilder builder = new StringBuilder();
         builder.append("Nama : ");
@@ -89,16 +91,19 @@ public class MainActivity extends AppCompatActivity {
         builder.append("Member : ");
         builder.append(rb.getText().toString() + "\n");
         builder.append("Judul Buku : ");
-        builder.append(tvHasilsp.getText().toString() + "\n");
-        builder.append("Judul Buku : ");
-        builder.append(tvHasilsp.getText().toString() + "\n");
+        builder.append(spJudul.getSelectedItem().toString() + "\n");
         builder.append("Kondisi Pinjam : ");
-        builder.append(tvHasilcb.getText().toString() + "\n");
+        String hasilcb = "";
+        int startlen = hasilcb.length();
+        if (cbCC.isChecked()) hasilcb += cbCC.getText();
+        if (cbBS.isChecked()) hasilcb += cbBS.getText();
+        if (cbPB.isChecked()) hasilcb += cbPB.getText();
+
+        if (hasilcb.length() == startlen) hasilcb += "Baik Baik Saja \n";
+        builder.append(hasilcb + "\n\n");
+        builder.append("Anda mendapatkan diskon " + diskon + "% WOW selamat ya");
 
         tvHasil.setText(builder);
-
-        /* if(rb.gtText().toString().equals("member")) diskon = 10;
-         * else if */
 
         String hasilrb = null;
 
@@ -109,24 +114,6 @@ public class MainActivity extends AppCompatActivity {
         } else if (rbPM.isChecked()) {
             hasilrb = rbPM.getText().toString();
         }
-
-        /*if (hasilrb == null) {
-            tvHasil.setText("Belum Menjadi Member");
-        } else {
-            tvHasil.setText("\n Member Anda : " + hasilrb + "\n");
-        }
-
-        /*tvHasil.setText("Judul Buku : " + spJudul.getSelectedItem().toString() + "\n");*/
-
-        String hasilcb = "Kondisi Buku Pinjam : \n";
-        int startlen = hasilcb.length();
-        if (cbCC.isChecked()) hasilcb += cbCC.getText() + "\n";
-        if (cbBS.isChecked()) hasilcb += cbBS.getText() + "\n";
-        if (cbPB.isChecked()) hasilcb += cbPB.getText() + "\n";
-
-        if (hasilcb.length() == startlen) hasilcb += "Tidak Meminjam Buku";
-
-        tvHasilcb.setText(hasilcb);
     }
 
 
